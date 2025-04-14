@@ -19,9 +19,51 @@ body {
   background: var(--primary);
   color: var(--white);
   font-weight: 600;
+  border-radius: 50px;
+  border: none;
+}
+.btn:hover {
+  background-color: #c90a27;
+  color: var(--white);
+  transition: all 0.3s ease;
+  border: none;
 }
 
 .card{
   background: var(--white);
   color: var(--foreground);
+  border-radius: 20px;
+}
+
+/* component title */
+.title{
+  margin-top: 7rem;
+}
+.title h1{
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.title span {
+  font-size: 16px;
+}
+
+/* component card-paket */
+.card-paket{
+  margin-top: 4rem;
+}
+
+/* component footer */
+.footer{
+  margin-top: 3rem;
+  background: var(--blue);
+  color: var(--white);
+  padding-top: 3rem;
+}
+
+.footer .bg-icons{
+  background-color: var(--white);
+  color: var(--foreground);
+  padding: 3px;
+  border-radius: 50px;
 }

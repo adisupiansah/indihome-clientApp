@@ -1,6 +1,7 @@
 import { Poppins } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
+import NavigasiBar from "@/components/NavigasiBar";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -16,7 +17,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} antialiased`} cz-shortcut-listen="true">{children}</body>
+      <body className={`${poppins.variable} antialiased`} cz-shortcut-listen="true">
+        <NavigasiBar/>
+        {children}
+      </body>
     </html>
   );
 }
