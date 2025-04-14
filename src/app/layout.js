@@ -2,6 +2,7 @@ import { Poppins } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
 import NavigasiBar from "@/components/NavigasiBar";
+import Footer from "@/components/Footer";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} antialiased`} cz-shortcut-listen="true">
         <NavigasiBar/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
