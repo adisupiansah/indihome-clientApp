@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaGlobe } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
@@ -31,6 +32,7 @@ const CardPaket = () => {
     }
   };
 
+
   useEffect(() => {
     handleFetch();
   }, []);
@@ -45,16 +47,20 @@ const CardPaket = () => {
 
   if (error) {
     return (
-      <div className="alert alert-danger" role="alert">
+      <div className="container">
+      <div className="alert alert-danger text-center" role="alert">
         {error}
+      </div>
       </div>
     );
   }
 
   if (!data || data.length === 0) {
     return (
-      <div class="alert alert-warning" role="alert">
+      <div className="container">
+      <div class="alert alert-warning text-center" role="alert">
         Data tidak di temukan
+      </div>
       </div>
     );
   }
@@ -83,9 +89,9 @@ const CardPaket = () => {
                   </div>
 
                   <div className="button">
-                    <button className="btn mt-3 btn-sm col-md-12">
+                    <Link className="btn mt-3 btn-sm col-md-12" href={`/detailpaket/${item.id}`}>
                       Pilih Paket
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
