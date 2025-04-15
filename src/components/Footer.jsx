@@ -1,10 +1,19 @@
+'use client';
 import Link from 'next/link';
 import React from 'react'
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
+  // tidak menggunakan component footer di /sukses
+  // karena footer di page sukses tidak ada
+  const pathname = usePathname();
+  if (pathname === '/sukses') {
+    return null;
+  }
+
   return (
     <div className='footer'>
       <div className="container">

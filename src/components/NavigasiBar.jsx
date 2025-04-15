@@ -1,9 +1,17 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from '@/app/img/logo.png'
+import { usePathname } from "next/navigation";
 
 const NavigasiBar = () => {
+
+  const pathname = usePathname();
+  if (pathname === '/sukses') {
+    return null;
+  }
+
   return (
     <nav className="navbar bg-white shadow-sm">
       <div className="container">

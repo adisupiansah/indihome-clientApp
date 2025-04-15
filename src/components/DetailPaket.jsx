@@ -4,8 +4,10 @@ import { FaGlobe } from "react-icons/fa";
 import { FaWrench } from "react-icons/fa";
 import Swal from "sweetalert2";
 import SyaratKetentuan from "./SyaratKetentuan";
+import { useRouter } from "next/navigation";
 
 const DetailPaket = ({ idPaket }) => {
+  const router = useRouter();
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -92,10 +94,13 @@ const DetailPaket = ({ idPaket }) => {
 
       Swal.fire({
         title: "Berhasil",
-        text: "data sudah dikirim ke admin, silahkan tunggu beberapa menit admin akan menghubugi anda, Terima Kasih!",
+        text: "Data berhasil disimpan",
         icon: "success",
-        confirmButtonText: "Ok",
-      });
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+          router.push('/sukses')
+      })
 
       // reset form
       setDataForm({
@@ -180,12 +185,12 @@ const DetailPaket = ({ idPaket }) => {
           </div>
         </div>
         <SyaratKetentuan />
-        <div className="row mt-3">
-          <div className="flex justify-center items-center">
-            <div className="col-md-8 card15">
-              <div className="card">
-                <div className="card-body">
-                  <form action="" onSubmit={handleSubmit}>
+        <form action="" onSubmit={handleSubmit}>
+          <div className="row mt-3">
+            <div className="flex justify-center items-center">
+              <div className="col-md-8 card15">
+                <div className="card">
+                  <div className="card-body">
                     <div className="form-group">
                       <label htmlFor="alamat">Alamat lengkap</label>
                       <input
@@ -195,7 +200,7 @@ const DetailPaket = ({ idPaket }) => {
                         placeholder="Jl. Raya No. 1"
                         value={dataForm.alamat}
                         onChange={handleInputChange}
-                        required
+                
                       />
                     </div>
                     <div className="form-group mt-3">
@@ -207,7 +212,7 @@ const DetailPaket = ({ idPaket }) => {
                         placeholder="Ahmad..."
                         value={dataForm.nama}
                         onChange={handleInputChange}
-                        required
+                 
                       />
                     </div>
                     <div className="form-group mt-3">
@@ -219,37 +224,41 @@ const DetailPaket = ({ idPaket }) => {
                         placeholder="81275..."
                         value={dataForm.nowa}
                         onChange={handleInputChange}
-                        required
+        
                       />
                     </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row mt-3">
-          <div className="flex justify-center items-center">
-            <div className="col-md-8 card15">
-              <div className="card">
-                <div className="card-body">
-                  <span className="card-title text-[16px] font-semibold">
-                    Total
-                  </span>
-                  <div className="total-button flex justify-between items-center">
-                    <span className="text-[24px] font-semibold">
-                      Rp {detail.fee}
-                    </span>
-                    <button className="btn btn-primary col-md-6" type="submit">
-                      Mulai berlangganan
-                    </button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+
+          <div className="row mt-3">
+            <div className="flex justify-center items-center">
+              <div className="col-md-8 card15">
+                <div className="card">
+                  <div className="card-body">
+                    <span className="card-title text-[16px] font-semibold">
+                      Total
+                    </span>
+                    <div className="total-button flex justify-between items-center">
+                      <span className="text-[24px] font-semibold">
+                        Rp {detail.fee}
+                      </span>
+                      <button
+                        className="btn btn-primary col-md-6"
+                        type="submit"
+                      >
+                        Mulai berlangganan
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </form>
       </div>
     </div>
   );
