@@ -5,6 +5,8 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
+import logo from '@/app/img/logo.png'
 
 const Footer = () => {
   // tidak menggunakan component footer di /sukses
@@ -38,12 +40,16 @@ const Footer = () => {
             </div>
             <div className="col-md-3">
               <p className='text-[20px] font-semibold text-center'>TAUTAN LAINNYA</p>
-              <ul className=''>
-                <li>
-                  <Link href={'/'}>Syarat & ketentuan</Link>
-                </li>
-
-              </ul>
+              <div className="text-center flex flex-col">
+                  <Link className=' text-center text-decoration-none text-white' href={'https://www.telkomsel.com/terms-and-conditions'}>Syarat & ketentuan</Link>
+                  <Link className=' text-center text-decoration-none text-white mt-2' href={'https://www.telkomsel.com/privacy-policy'}>Kebijakan privasi</Link>
+              </div>
+             
+            </div>
+            <div className="col-md-3">
+              <div className="flex justify-center items-center">
+                <Image src={logo} alt='logo indihome' width={200} height={200}/>
+              </div>
             </div>
         </div>
       </div>

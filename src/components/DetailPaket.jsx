@@ -15,6 +15,7 @@ const DetailPaket = ({ idPaket }) => {
     alamat: "",
     nama: "",
     nowa: "",
+    email: "",
     paket: idPaket,
   });
 
@@ -223,6 +224,18 @@ const DetailPaket = ({ idPaket }) => {
                         id="nowa"
                         placeholder="81275..."
                         value={dataForm.nowa}
+                        onChange={handleInputChange}
+        
+                      />
+                    </div>
+                    <div className="form-group mt-3">
+                      <label htmlFor="nowa">Email</label>
+                      <input
+                        type="email"
+                        className="form-control mt-1"
+                        id="email"
+                        placeholder="81275..."
+                        value={dataForm.email}
                         onChange={handleInputChange}
         
                       />
