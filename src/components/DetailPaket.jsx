@@ -234,7 +234,7 @@ const DetailPaket = ({ idPaket }) => {
                         type="email"
                         className="form-control mt-1"
                         id="email"
-                        placeholder="81275..."
+                        placeholder="johndoe@gmail.com"
                         value={dataForm.email}
                         onChange={handleInputChange}
         
